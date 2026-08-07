@@ -1,9 +1,9 @@
-# 🇦🇪 DubaiJobs.ae — 100,000 Job Portal
+# 🇪🇸 ESJobs.es — 100,000 Job Portal
 
 ## Features
 - ✅ 100,000 unique job pages (`/jobs/1` → `/jobs/100000`)
 - ✅ JSON-LD JobPosting schema on every job page
-- ✅ 50% Remote jobs, 50% On-site jobs across all 7 Emirates
+- ✅ 50% Remote jobs, 50% On-site jobs across all 17 autonomous communities
 - ✅ XML Sitemaps (100 sitemap files)
 - ✅ robots.txt
 - ✅ Pagination (20 jobs/page)
@@ -11,6 +11,17 @@
 - ✅ REST API
 - ✅ Zero database — all data generated deterministically
 - ✅ Gzip compression — fast on Railway free tier
+
+## Companies
+Includes major Spanish companies like:
+- Banco Santander, BBVA, CaixaBank
+- Telefónica, Movistar, Orange
+- Inditex, Zara, Mango, El Corte Inglés, Mercadona
+- Repsol, Iberdrola, Endesa
+- SEAT, Volkswagen España
+- Airbus España, Indra Sistemas
+- Cabify, Glovo, Wallapop
+- And many more...
 
 ## Deploy to Railway
 1. Push to GitHub or upload zip
