@@ -1,4 +1,4 @@
-// Job data generator - deterministically generates 100,000 jobs for Dubai/UAE
+// Job data generator - deterministically generates 100,000 jobs for Spain
 const TOTAL_JOBS = 100000;
 
 const jobTitles = [
@@ -29,74 +29,141 @@ const jobTitles = [
   "Scrum Master", "Agile Coach", "Release Manager", "Site Reliability Engineer",
   "Penetration Tester", "Cloud Engineer", "Platform Engineer", "API Developer",
   "Hotel Manager", "Restaurant Manager", "Chef", "Sommelier", "Event Manager",
-  "Aviation Engineer", "Pilot", "Flight Attendant", "Airport Manager"
+  "Aerospace Engineer", "Pilot", "Flight Attendant", "Airport Manager",
+  "Renewable Energy Engineer", "Solar Energy Specialist", "Wind Energy Technician",
+  "Game Developer", "Quality Assurance Engineer", "Security Engineer"
 ];
 
-// 75+ Dubai/UAE based companies + global companies with UAE presence
+// Spanish companies + global companies with Spain presence
 const companies = [
-  // UAE/Dubai based
-  "Emirates Group", "Dubai Holding", "Emaar Properties", "DP World", "Dubai World",
-  "Abu Dhabi National Oil Company (ADNOC)", "Etihad Airways", "Flydubai", "Air Arabia",
-  "Al Habtoor Group", "Al Futtaim Group", "Dubai Islamic Bank", "Emirates NBD",
-  "Abu Dhabi Commercial Bank", "First Abu Dhabi Bank", "Mashreq Bank", "RAK Bank",
-  "Dubai Investments", "DAMAC Properties", "Nakheel", "Meraas", "Al Tayer Group",
-  "Jumeirah Group", "Atlantis The Palm", "Burj Al Arab", "Emirates Airlines",
+  // Spanish Mega-corporations
+  "Banco Santander", "BBVA", "CaixaBank", "Bankia", "Bankinter",
+  "Telefónica", "Movistar", "Orange España", "Vodafone España", "MasMovil",
+  "Repsol", "Cepsa", "Iberdrola", "Endesa", "Naturgy",
+  "Inditex", "Zara", "Mango", "El Corte Inglés", "Carrefour España",
+  "Mercadona", "Lidl España", "Aldi España", "Dia", "Consum",
+  "Ferrovial", "ACS Group", "Acciona", "FCC", "Sacyr",
+  "Iberia", "Aena", "Renfe", "Adif", "Navantia",
+  "Abertis", "Ferrovial", "OHL", "Santander", "Mapfre",
   
-  // Global with UAE presence
-  "Google", "Amazon", "Microsoft", "Apple", "Meta", "Tesla", "Netflix",
-  "IBM", "Oracle", "Cisco", "Dell", "HP", "SAP", "Salesforce",
-  "Accenture", "Deloitte", "PwC", "KPMG", "EY", "McKinsey", "Boston Consulting Group",
-  "HSBC", "Standard Chartered", "Citi", "JPMorgan Chase", "Goldman Sachs",
-  "Unilever", "P&G", "Nestle", "Coca-Cola", "PepsiCo",
-  "Shell", "BP", "TotalEnergies", "ExxonMobil", "Chevron",
-  "Siemens", "GE", "Schneider Electric", "ABB", "Honeywell",
-  "Boeing", "Airbus", "Rolls-Royce", "Lockheed Martin",
-  "Pfizer", "Novartis", "Roche", "GSK", "Johnson & Johnson",
-  "Samsung", "LG", "Sony", "Panasonic", "Toshiba",
-  "Toyota", "Honda", "Nissan", "BMW", "Mercedes-Benz",
-  "LVMH", "Kering", "Chanel", "Gucci", "Rolex"
+  // Construction & Real Estate
+  "Grupo Santander", "Metrovacesa", "Neinor Homes", "Aedas Homes", "Via Célere",
+  "Fomento de Construcciones", "OHL", "Sacyr", "ACS",
+  
+  // Automotive
+  "SEAT", "Volkswagen España", "Mercedes-Benz España", "Renault España",
+  "Ford España", "Opel España", "Toyota España", "Nissan España",
+  
+  // Aviation & Aerospace
+  "Airbus España", "Boeing España", "Indra Sistemas", "GMV", "Deimos Space",
+  "Gulfstream Aerospace", "CASA (Construcciones Aeronáuticas)",
+  
+  // Tech & Startups
+  "Cabify", "Glovo", "Wallapop", "Lingokids", "Aircash",
+  "Coverwallet", "Bnext", "Fintonic", "PayFit España", "Factorial",
+  "Z1", "Bizum", "Flywire", "Job&Talent", "Freepik",
+  "Socialpoint", "King España", "Ubisoft España", "MercurySteam",
+  "Biome Makers", "Carto", "Copado", "Hack the Box",
+  
+  // Global with Spain presence
+  "Google España", "Amazon España", "Microsoft España", "Apple España", "Meta España",
+  "Netflix España", "IBM España", "Oracle España", "Cisco España", "Dell España",
+  "HP España", "SAP España", "Salesforce España", "Accenture España",
+  "Deloitte España", "PwC España", "KPMG España", "EY España",
+  "McKinsey España", "Boston Consulting Group España",
+  "HSBC España", "Citibank España", "JPMorgan España",
+  "Unilever España", "P&G España", "Nestle España", "Coca-Cola España",
+  "Shell España", "BP España", "TotalEnergies España",
+  "Siemens España", "GE España", "Schneider Electric España",
+  "Pfizer España", "Novartis España", "GSK España", "Johnson & Johnson España",
+  "Samsung España", "LG España", "Sony España", "Panasonic España",
+  "Toyota España", "Honda España", "BMW España", "Mercedes-Benz España",
+  "LVMH España", "Chanel España", "Gucci España",
+  
+  // Tourism & Hospitality
+  "Meliá Hotels International", "NH Hotel Group", "Riu Hotels", "Iberostar",
+  "Barcelo Hotels", "Paradores", "Puente Romano", "Marriott España",
+  "Hilton España", "Four Seasons España", "Mandarin Oriental España"
 ];
 
-const dubaiLocations = [
-  // Dubai
-  "Downtown Dubai, Dubai", "Dubai Marina, Dubai", "Jumeirah, Dubai", "Business Bay, Dubai",
-  "Dubai Silicon Oasis, Dubai", "Dubai Internet City, Dubai", "Media City, Dubai",
-  "JLT (Jumeirah Lakes Towers), Dubai", "DIFC (Dubai International Financial Centre), Dubai",
-  "Al Barsha, Dubai", "Deira, Dubai", "Bur Dubai, Dubai", "Karama, Dubai",
-  "Al Satwa, Dubai", "Jebel Ali, Dubai", "Dubai South, Dubai", "Al Quoz, Dubai",
-  "Emirates Hills, Dubai", "Palm Jumeirah, Dubai", "The World Islands, Dubai",
-  "Al Wasl, Dubai", "Al Nahda, Dubai", "Mirdif, Dubai", "Al Warqa, Dubai",
-  "Al Garhoud, Dubai", "Oud Metha, Dubai", "Al Rigga, Dubai", "Al Raffa, Dubai",
+const spainLocations = [
+  // Madrid Community
+  "Madrid (Centro)", "Madrid (Salamanca)", "Madrid (Chamartín)", "Madrid (Tetúan)",
+  "Madrid (Latina)", "Madrid (Carabanchel)", "Madrid (Usera)", "Madrid (Villaverde)",
+  "Madrid (Moratalaz)", "Madrid (Ciudad Lineal)", "Madrid (Hortaleza)", "Madrid (Barajas)",
+  "Madrid (Fuencarral)", "Madrid (Moncloa)", "Madrid (Argüelles)", "Madrid (Retiro)",
+  "Alcalá de Henares, Madrid", "Móstoles, Madrid", "Getafe, Madrid", "Fuenlabrada, Madrid",
+  "Leganés, Madrid", "Alcorcón, Madrid", "Torrejón de Ardoz, Madrid", "Parla, Madrid",
+  "Rivas-Vaciamadrid, Madrid", "Pozuelo de Alarcón, Madrid", "San Sebastián de los Reyes, Madrid",
   
-  // Abu Dhabi
-  "Abu Dhabi City, Abu Dhabi", "Al Reem Island, Abu Dhabi", "Yas Island, Abu Dhabi",
-  "Al Raha Beach, Abu Dhabi", "Khalifa City, Abu Dhabi", "Al Ain, Abu Dhabi",
-  "Saadiyat Island, Abu Dhabi", "Corniche, Abu Dhabi", "Al Maryah Island, Abu Dhabi",
-  "Mohamed Bin Zayed City, Abu Dhabi", "Mussafah, Abu Dhabi",
+  // Catalonia
+  "Barcelona (Ciutat Vella)", "Barcelona (Eixample)", "Barcelona (Sants-Montjuïc)", "Barcelona (Les Corts)",
+  "Barcelona (Sarrià-Sant Gervasi)", "Barcelona (Gràcia)", "Barcelona (Horta-Guinardó)",
+  "Barcelona (Nou Barris)", "Barcelona (Sant Andreu)", "Barcelona (Sant Martí)",
+  "Barcelona (Vallès)", "Barcelona (Poblenou)", "Barcelona (El Raval)", "Barcelona (Barceloneta)",
+  "L'Hospitalet de Llobregat, Barcelona", "Badalona, Barcelona", "Terrassa, Barcelona",
+  "Sabadell, Barcelona", "Mataró, Barcelona", "Santa Coloma de Gramenet, Barcelona",
+  "Cornellà de Llobregat, Barcelona", "Sant Boi de Llobregat, Barcelona",
+  "Girona", "Tarragona", "Lleida", "Figueres", "Reus", "Salou",
   
-  // Sharjah
-  "Sharjah City, Sharjah", "Al Majaz, Sharjah", "Al Khan, Sharjah", "Al Nahda, Sharjah",
-  "Muwaileh, Sharjah", "Al Tai, Sharjah",
+  // Valencia Community
+  "Valencia (Ciutat Vella)", "Valencia (Eixample)", "Valencia (Extramurs)", "Valencia (Campanar)",
+  "Valencia (La Saïdia)", "Valencia (El Pla del Real)", "Valencia (L'Olivereta)", "Valencia (Patraix)",
+  "Valencia (Jesús)", "Valencia (Quatre Carreres)", "Valencia (Poblats Marítims)",
+  "Alicante", "Elche", "Castellón de la Plana", "Benidorm", "Torrevieja",
+  "Orihuela", "Gandía", "Alcoi", "Elda", "Ontinyent",
   
-  // Other Emirates
-  "Ajman City, Ajman", "Ras Al Khaimah, RAK", "Fujairah City, Fujairah",
-  "Umm Al Quwain, UAQ", "Al Jazirah, UAQ",
+  // Andalusia
+  "Sevilla (Centro)", "Sevilla (Nervión)", "Sevilla (Triana)", "Sevilla (Los Remedios)",
+  "Sevilla (Mairena del Aljarafe)", "Sevilla (Montequinto)",
+  "Málaga (Centro)", "Málaga (Este)", "Málaga (Teatinos)", "Málaga (Churriana)",
+  "Málaga (Puerto de la Torre)", "Málaga (Carretera de Cádiz)",
+  "Granada (Centro)", "Granada (Albaicín)", "Granada (Zaidín)",
+  "Córdoba (Centro)", "Córdoba (Norte)", "Córdoba (Sur)",
+  "Cádiz", "Jerez de la Frontera", "Algeciras", "San Fernando",
+  "Huelva", "Almería", "Jaén", "Marbella", "Torremolinos", "Benalmádena",
+  "Estepona", "Mijas", "Fuengirola",
+  
+  // Basque Country
+  "Bilbao (Abando)", "Bilbao (Deusto)", "Bilbao (Ibaiondo)", "Bilbao (Uribarri)",
+  "Bilbao (Begoña)", "Vitoria-Gasteiz", "San Sebastián (Donostia)",
+  "Barakaldo", "Getxo", "Irun", "Santurtzi", "Basauri",
+  
+  // Other Regions
+  "Zaragoza, Aragón", "Palma de Mallorca, Balearic Islands", "Las Palmas, Canary Islands",
+  "Santa Cruz de Tenerife, Canary Islands", "Murcia", "Pamplona, Navarra",
+  "Logroño, La Rioja", "Oviedo, Asturias", "Gijón, Asturias", "Avilés, Asturias",
+  "Santander, Cantabria", "San Sebastián, Basque Country",
+  "León, Castile and León", "Burgos, Castile and León", "Salamanca, Castile and León",
+  "Valladolid, Castile and León", "Toledo, Castile-La Mancha", "Albacete, Castile-La Mancha",
+  "Ciudad Real, Castile-La Mancha", "Cuenca, Castile-La Mancha", "Guadalajara, Castile-La Mancha",
+  "Cáceres, Extremadura", "Mérida, Extremadura", "Badajoz, Extremadura",
   
   // Remote
-  "Remote — UAE", "Remote — Dubai, UAE"
+  "Remote — Spain", "Remote — Madrid", "Remote — Barcelona", "Remote — Valencia",
+  "Remote — Sevilla", "Remote — Bilbao", "Remote — Málaga", "Remote — Zaragoza"
 ];
 
 const salaryRanges = [
-  { display: "AED 5,000 – 8,000/month", min: 5000, max: 8000 },
-  { display: "AED 8,000 – 12,000/month", min: 8000, max: 12000 },
-  { display: "AED 12,000 – 18,000/month", min: 12000, max: 18000 },
-  { display: "AED 18,000 – 25,000/month", min: 18000, max: 25000 },
-  { display: "AED 25,000 – 35,000/month", min: 25000, max: 35000 },
-  { display: "AED 35,000 – 50,000/month", min: 35000, max: 50000 },
-  { display: "AED 50,000 – 75,000/month", min: 50000, max: 75000 },
-  { display: "AED 75,000 – 100,000/month", min: 75000, max: 100000 },
-  { display: "AED 100,000+/month", min: 100000, max: 150000 },
-  { display: "AED 3,000 – 5,000/month", min: 3000, max: 5000 }
+  // Entry Level (€18K-€28K)
+  { display: "€18,000 – 22,000 per year", min: 18000, max: 22000 },
+  { display: "€22,000 – 26,000 per year", min: 22000, max: 26000 },
+  { display: "€26,000 – 30,000 per year", min: 26000, max: 30000 },
+  // Mid Level (€30K-€50K)
+  { display: "€30,000 – 35,000 per year", min: 30000, max: 35000 },
+  { display: "€35,000 – 42,000 per year", min: 35000, max: 42000 },
+  { display: "€42,000 – 50,000 per year", min: 42000, max: 50000 },
+  // Senior Level (€50K-€80K)
+  { display: "€50,000 – 60,000 per year", min: 50000, max: 60000 },
+  { display: "€60,000 – 70,000 per year", min: 60000, max: 70000 },
+  { display: "€70,000 – 85,000 per year", min: 70000, max: 85000 },
+  // Executive (€85K+)
+  { display: "€85,000 – 100,000 per year", min: 85000, max: 100000 },
+  { display: "€100,000 – 150,000 per year", min: 100000, max: 150000 },
+  // Hourly (Part-time)
+  { display: "€10 – 12 per hour", min: 10, max: 12 },
+  { display: "€12 – 15 per hour", min: 12, max: 15 },
+  { display: "€15 – 20 per hour", min: 15, max: 20 }
 ];
 
 const jobTypes = ["FULL_TIME", "CONTRACTOR", "PART_TIME", "INTERN", "TEMPORARY"];
@@ -110,25 +177,28 @@ const jobTypeDisplay = {
 
 const experienceLevels = [
   { display: "Entry Level", schema: "no requirements" },
-  { display: "Mid Level",   schema: "2 years experience" },
-  { display: "Senior Level",schema: "5 years experience" },
-  { display: "Lead",        schema: "7 years experience" },
-  { display: "Manager",     schema: "5 years experience" },
-  { display: "Director",    schema: "8 years experience" },
-  { display: "Executive",   schema: "10 years experience" }
+  { display: "Junior", schema: "1 year experience" },
+  { display: "Mid Level",   schema: "2-3 years experience" },
+  { display: "Senior Level",schema: "5+ years experience" },
+  { display: "Lead",        schema: "7+ years experience" },
+  { display: "Manager",     schema: "5+ years experience" },
+  { display: "Director",    schema: "8+ years experience" },
+  { display: "Executive",   schema: "10+ years experience" }
 ];
 
 const industries = [
-  "Technology", "Fintech", "E-commerce", "Banking & Finance", "Oil & Gas",
+  "Technology", "Fintech", "E-commerce", "Banking & Finance", "Renewable Energy",
   "Real Estate", "Healthcare", "Education", "Consulting", "Aviation",
-  "Construction", "Logistics & Shipping", "Hospitality", "Retail", "Media & Entertainment",
-  "Renewable Energy", "Automotive", "Telecommunications", "Legal", "Government"
+  "Construction", "Logistics & Shipping", "Hospitality & Tourism", "Retail", "Media & Entertainment",
+  "Energy", "Automotive", "Telecommunications", "Legal", "Government & Public Sector",
+  "Pharmaceuticals", "Biotechnology", "Defense & Aerospace", "Gaming", "Creative Arts",
+  "Agriculture & Food", "Wine & Viticulture", "Automotive", "Textiles & Fashion"
 ];
 
 const jobDescriptions = [
-  (title, company, isRemote, location) => `We are seeking a talented ${title} to join the team at ${company} in Dubai. ${isRemote ? "This is a fully remote role open to qualified candidates across the UAE." : `This role is based in ${location}.`}
+  (title, company, isRemote, location) => `We are seeking a talented ${title} to join the team at ${company} in Spain. ${isRemote ? "This is a fully remote role open to qualified candidates across Spain." : `This role is based in ${location}.`}
 
-You will be responsible for delivering high-quality work that drives business outcomes and contributes to ${company}'s growing operations in the UAE and Middle East region.
+You will be responsible for delivering high-quality work that drives business outcomes and contributes to ${company}'s growing operations in Spain and Europe.
 
 Key Responsibilities:
 • Lead and execute core ${title.toLowerCase()} functions across the organization
@@ -140,31 +210,34 @@ Key Responsibilities:
 Requirements:
 • 3–5 years of experience in a similar ${title.toLowerCase()} role
 • Strong communication and problem-solving skills
-• Experience working in fast-paced global tech/business environment
-• Bachelor's degree in a relevant field
+• Experience working in fast-paced global business environment
+• Bachelor's degree in a relevant field (or equivalent experience)
+• Spanish language ability is a plus
 • Proficiency with modern tools and platforms
 
 What We Offer:
-• Competitive salary in AED
-• Health insurance for you and family
-• 30 days annual leave
+• Competitive salary (EUR)
+• Private health insurance (Seguro de Salud)
+• Pension plan (Plan de Pensiones)
+• 22-30 days annual leave + national holidays
 • Remote work allowance
 • Annual performance bonus
 • Professional development budget
-• Tax-free income in Dubai`,
+• Meals allowance (Tiquets Restaurant)
+• Flexible working hours`,
 
-  (title, company, isRemote, location) => `${company} is hiring a ${title}! We are a leading company in Dubai looking for experienced professionals to scale our impact across the UAE and Middle East.
+  (title, company, isRemote, location) => `${company} is hiring a ${title}! We are a leading Spain-based company looking for experienced professionals to scale our impact across the country.
 
-${isRemote ? "This remote-first position allows you to work from anywhere in the UAE with flexible hours." : `You will work from our ${location} office with a dynamic, ambitious team.`}
+${isRemote ? "This remote-first position allows you to work from anywhere in Spain with flexible hours." : `You will work from our ${location} office with a dynamic, ambitious team.`}
 
 About the Role:
-As a ${title} at ${company}, you will play a key role in shaping our products and services. You'll work closely with leadership and peers to execute on our mission in one of the world's fastest-growing economies.
+As a ${title} at ${company}, you will play a key role in shaping our products and services. You'll work closely with leadership and peers to execute on our mission in one of Europe's most dynamic economies.
 
 What You'll Do:
 • Drive key ${title.toLowerCase()} initiatives from planning to execution
 • Build and maintain relationships with key stakeholders
 • Report on KPIs and contribute to strategic planning
-• Stay updated on industry trends globally and in the UAE
+• Stay updated on industry trends globally and in Spain
 • Represent ${company} with professionalism and integrity
 
 What You Bring:
@@ -174,16 +247,16 @@ What You Bring:
 • Relevant certification or degree preferred
 
 Compensation & Benefits:
-• Competitive AED salary • Tax-free income • Health insurance • Annual leave (30 days) • Education allowance • Housing allowance (for eligible positions)`,
+• Competitive EUR salary • Private health insurance • Pension plan • 22+ days annual leave • Meals allowance • Performance bonus • Learning budget`,
 
-  (title, company, isRemote, location) => `Join ${company} as a ${title} and be part of one of Dubai's most exciting companies!
+  (title, company, isRemote, location) => `Join ${company} as a ${title} and be part of one of Spain's most exciting companies!
 
-${isRemote ? "🌐 Remote | Work from anywhere in the UAE" : `📍 ${location}`}
+${isRemote ? "🌐 Remote | Work from anywhere in Spain" : `📍 ${location}`}
 
-We're building the future of business in the Middle East and need exceptional talent like you. This is a rare opportunity to work with a world-class brand while enjoying the tax-free lifestyle of Dubai.
+We're building the future of business in Spain and need exceptional talent like you. This is a rare opportunity to work with a world-class brand while enjoying the vibrant Spanish culture and lifestyle.
 
 The Opportunity:
-You'll be taking on the ${title} role at a critical growth stage. Your work will directly impact millions of customers across the region.
+You'll be taking on the ${title} role at a critical growth stage. Your work will directly impact millions of customers across Spain.
 
 Day-to-Day Responsibilities:
 • Execute and improve key workflows within the ${title.toLowerCase()} function
@@ -199,7 +272,7 @@ Your Profile:
 • Degree in relevant discipline (Master's is a plus)
 
 Perks at ${company}:
-Tax-free salary | Health insurance | Housing allowance (optional) | Annual flight allowance | Education allowance | 30 days leave | Performance bonus | Learning budget | Gym membership`
+Competitive salary | Private health insurance | Pension plan | 22-30 days holiday + holidays | Meals allowance | Performance bonus | Learning budget | Hybrid/remote options | Gym membership in some cases`
 ];
 
 function seededRandom(seed) {
@@ -216,7 +289,7 @@ function getJobData(id) {
   const companyIndex = Math.floor((id - 1) / Math.ceil(TOTAL_JOBS / companies.length)) % companies.length;
 
   const titleIndex   = Math.floor(r(1) * jobTitles.length);
-  const locationIndex= Math.floor(r(3) * dubaiLocations.length);
+  const locationIndex= Math.floor(r(3) * spainLocations.length);
   const salaryIndex  = Math.floor(r(4) * salaryRanges.length);
   const jobTypeIndex = Math.floor(r(5) * jobTypes.length);
   const expIndex     = Math.floor(r(6) * experienceLevels.length);
@@ -225,12 +298,12 @@ function getJobData(id) {
 
   const title    = jobTitles[titleIndex];
   const company  = companies[companyIndex];
-  const location = isRemote ? "Remote — UAE" : dubaiLocations[locationIndex];
+  const location = isRemote ? "Remote — Spain" : spainLocations[locationIndex];
   const salary   = salaryRanges[salaryIndex];
   const jobType  = jobTypes[jobTypeIndex];
   const exp      = experienceLevels[expIndex];
   const industry = industries[industryIndex];
-  const description = jobDescriptions[descIndex](title, company, isRemote, dubaiLocations[locationIndex]);
+  const description = jobDescriptions[descIndex](title, company, isRemote, spainLocations[locationIndex]);
 
   const daysAgo = Math.floor(r(9) * 60);
   const postedDate = new Date();
@@ -268,7 +341,7 @@ function getJobSchema(job) {
     "identifier": {
       "@type": "PropertyValue",
       "name": job.company,
-      "value": `JOB-AE-${String(job.id).padStart(6, '0')}`
+      "value": `JOB-ES-${String(job.id).padStart(6, '0')}`
     },
     "datePosted": job.postedDate,
     "validThrough": `${job.validThrough}T00:00:00Z`,
@@ -282,22 +355,22 @@ function getJobSchema(job) {
       "@type": "Place",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": job.isRemote ? "Dubai" : job.location.split(',')[0],
-        "addressCountry": "AE"
+        "addressLocality": job.isRemote ? "Madrid" : job.location.split(',')[0],
+        "addressCountry": "ES"
       }
     },
     "applicantLocationRequirements": {
       "@type": "Country",
-      "name": "United Arab Emirates"
+      "name": "Spain"
     },
     "baseSalary": {
       "@type": "MonetaryAmount",
-      "currency": "AED",
+      "currency": "EUR",
       "value": {
         "@type": "QuantitativeValue",
         "minValue": job.salaryMin,
         "maxValue": job.salaryMax,
-        "unitText": "MONTH"
+        "unitText": "YEAR"
       }
     },
     "experienceRequirements": {
@@ -317,4 +390,4 @@ function getJobSchema(job) {
   return schema;
 }
 
-module.exports = { getJobData, getJobSchema, TOTAL_JOBS, jobTitles, companies, dubaiLocations, industries };
+module.exports = { getJobData, getJobSchema, TOTAL_JOBS, jobTitles, companies, spainLocations, industries };
